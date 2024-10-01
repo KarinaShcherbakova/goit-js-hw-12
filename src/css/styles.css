@@ -7,7 +7,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: #434455;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   padding: 20px;
@@ -43,7 +43,7 @@ body {
 
 .form-search-btn {
   padding: 8px 16px;
-  background-color: #4E75FF;
+  background-color: #4e75ff;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -52,7 +52,7 @@ body {
 }
 
 .form-search-btn:hover {
-  background-color: #6C8CFF;
+  background-color: #6c8cff;
 }
 
 .gallery {
@@ -89,18 +89,29 @@ body {
   display: none; 
   justify-content: center; 
   align-items: center; 
-  height: 100px; 
-  text-align: center;
-  flex-direction: column;
+  height: 100vh; 
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
 }
 
 .spinner {
-  border: 16px solid #f3f3f3; 
-  border-top: 16px solid #4e75ff; 
-  border-radius: 50%; 
-  width: 60px; 
-  height: 60px; 
-  animation: spin 2s linear infinite; 
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #4e75ff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+.loader p {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #000; 
+  font-weight: bold; 
 }
 
 @keyframes spin {
@@ -108,41 +119,16 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.loader p {
-  margin-top: 10px; 
-  font-size: 20px; 
-  color: #333; 
-}
-
-.lightbox-open {
-  overflow: hidden; 
-}
-
-.lightbox-open::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 999; 
-}
-
-.lightbox-open .gallery {
-  pointer-events: none; 
-}
-
 .load-btn {
-  display: block; 
-  margin: 30px auto; 
+  display: block;
+  margin: 30px auto;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #fff;
-  background-color: #007bff; 
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -151,16 +137,26 @@ body {
 }
 
 .load-btn:hover {
-  background-color: #0056b3; 
-  transform: translateY(-2px); 
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
 .load-btn:active {
-  background-color: #003f7f; 
-  transform: translateY(1px); 
+  background-color: #003f7f;
+  transform: translateY(1px);
 }
 
 .load-btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.load-btn.loading {
+  animation: loadingAnimation 1s infinite;
+}
+
+@keyframes loadingAnimation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }

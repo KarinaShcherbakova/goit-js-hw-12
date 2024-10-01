@@ -3,7 +3,7 @@ import { galleryLightbox } from '../main';
 export function createImageCard(image) {
     return `
       <a href="${image.largeImageURL}" class="gallery-item">
-        <img src="${image.webformatURL}" alt="${image.tags}" width="360" loading="lazy" data-caption="${image.tags}" />
+        <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" data-caption="${image.tags}" />
         <div class="info">
           <p><b>Likes:</b> ${image.likes}</p>
           <p><b>Views:</b> ${image.views}</p>
